@@ -22,14 +22,15 @@
  * Define Global Variables
  * 
 */
-
+const sections = document.querySelectorAll('section');
+const navList = document.getElementById('navbar__list');
 
 /**
  * End Global Variables
  * Start Helper Functions
  * 
 */
-
+function isInViewport(section){} /* ?? !!ADD return boolean w/ height and width? true if the sec is in viewport*/
 
 
 /**
@@ -46,10 +47,13 @@ function buildNav() {
     navLink.textContent = section.dataset.nav;
     navLink.classList.add('menu__link');
     navLink.href = `#${section.id}`;
-    navLink.addEventListener('click', function(event) {event.preventDefault();
-        section.scrollIntoView({behavior: 'smooth'});
+    navLink.addEventListener('click', function(event) { 
+        event.preventDefault();
+        section.scrollIntoView({ behavior: 'smooth' });
     });
-  })  
+    navItem.appendChild(navLink);
+    navList.appendChild(navItem);
+  });  
 }
 
 // Add class 'active' to section when near top of viewport
