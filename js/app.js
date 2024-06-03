@@ -39,7 +39,18 @@
 */
 
 // build the nav
-
+function buildNav() {
+  sections.forEach(section => {
+    const navItem = document.createElement('li');
+    const navLink = document.createElement('a');
+    navLink.textContent = section.dataset.nav;
+    navLink.classList.add('menu__link');
+    navLink.href = `#${section.id}`;
+    navLink.addEventListener('click', function(event) {event.preventDefault();
+        section.scrollIntoView({behavior: 'smooth'});
+    });
+  })  
+}
 
 // Add class 'active' to section when near top of viewport
 
