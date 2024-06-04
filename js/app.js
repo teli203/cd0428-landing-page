@@ -34,7 +34,8 @@ const navList = document.getElementById('navbar__list');
 
 /**
  * Check if a section is in the viewport
- * @param {HTMLElement} section - The section to check
+ * 
+ * @param {HTMLElement} section - The section to check parameter
  * @return {boolean} - True if the section is in the viewport
  */
 function isInViewport(section) {
@@ -54,6 +55,7 @@ function isInViewport(section) {
 */
 
 // build the nav
+
 function buildNav() {
   sections.forEach(section => {
     const navItem = document.createElement('li');
@@ -71,6 +73,7 @@ function buildNav() {
 }
 
 // Add class 'active' to section when near top of viewport
+
 function setActiveSection() {
     sections.forEach(section => {
         const navLink = document.querySelector(`a[href="#${section.id}"]`);
@@ -94,10 +97,12 @@ function setActiveSection() {
 */
 
 // Build menu 
-document.addEventListener();
+
+document.addEventListener('DOMContentLoaded', buildNav);
 
 // Scroll to section on link click
 /* in line 59 of buildNav code */
 // Set sections as active
+
 document.addEventListener('scroll', setActiveSection);
 
