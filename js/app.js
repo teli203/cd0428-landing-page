@@ -22,6 +22,7 @@
  * Define Global Variables
  * 
 */
+
 const sections = document.querySelectorAll('section');
 const navList = document.getElementById('navbar__list');
 
@@ -32,17 +33,19 @@ const navList = document.getElementById('navbar__list');
 */
 
 /**
- * Check if a section is in the viewport, add parameter function from test code 
-*/
+ * Check if a section is in the viewport
+ * @param {HTMLElement} section - The section to check
+ * @return {boolean} - True if the section is in the viewport
+ */
 function isInViewport(section) {
-    const rect = section.getBoundingClientReact();
+    const rect = section.getBoundingClientRect();
     return (
         rect.top >= 0 &&
         rect.left >= 0 &&
         rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
         rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
-} 
+}
 
 /**
  * End Helper Functions
@@ -68,10 +71,21 @@ function buildNav() {
 }
 
 // Add class 'active' to section when near top of viewport
-
+function setActiveSection() {
+    sections.forEach(section => {
+        const navLink = document.querySelector(`a[href="#${section.id}"]`);
+        if (isInViewport(section)) {
+            section.classList.add('your-active-class');
+            navLink.classList.add('active');
+        } else {
+            section.classList.remove('your-active-class');
+            navLink.classList.remove('active');
+        }
+    });  
+}
 
 // Scroll to anchor ID using scrollTO event
-
+/* in line 60 of buildNav code */
 
 /**
  * End Main Functions
