@@ -30,8 +30,19 @@ const navList = document.getElementById('navbar__list');
  * Start Helper Functions
  * 
 */
-function isInViewport(section){} /* ?? !!ADD return boolean w/ height and width? true if the sec is in viewport*/
 
+/**
+ * Check if a section is in the viewport, add parameter function from test code 
+*/
+function isInViewport(section) {
+    const rect = section.getBoundingClientReact();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+} 
 
 /**
  * End Helper Functions
