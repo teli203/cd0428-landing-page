@@ -34,7 +34,7 @@ h1 {
 }
 
 h2 {
-    border-bottom: 1px solid #cc1;
+    border-bottom: 1.5px solid rgb(160, 160, 13);
     font-family: 'Oxygen', Sans-Serif;
     font-size: 3em;
     color: #fff;
@@ -58,6 +58,11 @@ main {
 section {
     position: relative;
     min-height: 80vh;
+    margin: 3.5rem;
+    padding: .5rem;
+    text-shadow: 3px 2px 3px rgb(5, 5, 5);
+    border: 2px solid transparent;
+    box-shadow: 0 0 10px rgb(4, 4, 4);
 }
 
 
@@ -90,7 +95,7 @@ section {
 
 /* Header Styles */
 .page__header {
-    background: #fff;
+    background: #7fa7ac;
     position: fixed;
     top: 0;
     width: 100%;
@@ -99,7 +104,7 @@ section {
 
 /* Footer Styles */
 .page__footer {
-    background: #000;
+    background: rgb(6, 18, 62);
     padding: 3em;
     color: #fff;
 }
