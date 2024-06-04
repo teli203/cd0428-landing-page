@@ -102,6 +102,7 @@ document.addEventListener('DOMContentLoaded', buildNav);
 
 // Scroll to section on link click
 /* in line 59 of buildNav code */
+
 // Set sections as active
 
 document.addEventListener('scroll', setActiveSection);
