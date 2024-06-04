@@ -94,9 +94,10 @@ function setActiveSection() {
 */
 
 // Build menu 
+document.addEventListener();
 
 // Scroll to section on link click
-
+/* in line 59 of buildNav code */
 // Set sections as active
-
+document.addEventListener('scroll', setActiveSection);
 
