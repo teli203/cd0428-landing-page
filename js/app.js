@@ -101,7 +101,7 @@ document.addEventListener('scroll', function() {
 });
 
 // Scroll to anchor ID using scrollTO event
-/* in line 60 of buildNav code */
+/* in line 62 of buildNav code */
 
 /**
  * End Main Functions
@@ -114,7 +114,7 @@ document.addEventListener('scroll', function() {
 document.addEventListener('DOMContentLoaded', buildNav);
 
 // Scroll to section on link click
-/* in line 59 of buildNav code */
+/* in line 61 of buildNav code */
 
 // Set sections as active
 
