@@ -87,6 +87,19 @@ function setActiveSection() {
     });  
 }
 
+// Add or remove the 'active-class' based on scroll logic
+
+document.addEventListener('scroll', function() {
+    sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+            section.classList.add('your-active-class');
+        } else {
+            section.classList.remove('your-active-class');
+        }
+    });
+});
+
 // Scroll to anchor ID using scrollTO event
 /* in line 60 of buildNav code */
 
