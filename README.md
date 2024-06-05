@@ -1,9 +1,21 @@
 # Landing Page Project
 
-## Instructions
+# Project Overview
+This project demonstrates a dynamic and interactive web page where the navigation menu is built programmatically. It allows for smooth scrolling to different sections and highlights the section currently in the viewport. The project includes the following features:
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
-
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+## Programmatic navigation menu building.
+Smooth scrolling to sections upon clicking the navigation links.
+Highlighting sections in the viewport.
+## Dependencies
+None
+## JavaScript Version
+ES2015/ES6
+## JavaScript Standard
+ESLint
+## Files Included
+#### index.html: 
+The main HTML file.
+#### app.js: 
+The JavaScript file that includes the main logic.
+#### styles.css: 
+The CSS file that includes styling for the page.
