@@ -120,3 +120,26 @@ document.addEventListener('DOMContentLoaded', buildNav);
 
 document.addEventListener('scroll', setActiveSection);
 
+/* 
+** Removed from test code file just in case its need for re-attempt **
+
+function makeActive(){
+    for (cons section of sections) {
+        const box = section.getBoundingClientRect();
+        //Find a value that works best, but 150 seems to be a good start.
+        if (box.top <= VALUE && box.bottom >= VALUE) {
+        //apply active state on current section and corresponding Nav link
+        } else {
+        //Remove active state from other section and corresponding Nav link
+        }
+     }
+} 
+
+Call the makeActive() function whenever the user scrolls the page.
+// Make sections active document.addEventListener("scroll", function() { makeActive();});
+
+   * Set CSS class active state when the element is in the viewport.
+   * *Hint: see this* <a href="https://knowledge.udacity.com/questions/85408" target="_blank">*Knowledge post*</a> *to implement this functionality.*
+
+<br data-md>
+*/
