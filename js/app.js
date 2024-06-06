@@ -25,6 +25,7 @@
 
 const sections = document.querySelectorAll('section');
 const navList = document.getElementById('navbar__list');
+const navLinks = document.querySelectorAll('nav ul li a'); // Added for Intersection Observer
 
 /**
  * End Global Variables
@@ -54,54 +55,53 @@ function isInViewport(section) {
  * 
 */
 
-// build the nav
+// Build the navigation menu
 
 function buildNav() {
-  sections.forEach(section => {
-    const navItem = document.createElement('li');
-    const navLink = document.createElement('a');
-    navLink.textContent = section.dataset.nav;
-    navLink.classList.add('menu__link');
-    navLink.href = `#${section.id}`;
-    navLink.addEventListener('click', function(event) { 
-        event.preventDefault();
-        section.scrollIntoView({ behavior: 'smooth' });
-    });
-    navItem.appendChild(navLink);
-    navList.appendChild(navItem);
-  });  
-}
-
-// Add class 'active' to section when near top of viewport
-
-function setActiveSection() {
     sections.forEach(section => {
-        const navLink = document.querySelector(`a[href="#${section.id}"]`);
-        if (isInViewport(section)) {
-            section.classList.add('your-active-class');
-            navLink.classList.add('active');
-        } else {
-            section.classList.remove('your-active-class');
-            navLink.classList.remove('active');
-        }
+        const navItem = document.createElement('li');
+        const navLink = document.createElement('a');
+        navLink.textContent = section.dataset.nav;
+        navLink.classList.add('menu__link');
+        navLink.href = `#${section.id}`;
+        navLink.addEventListener('click', function(event) { 
+            event.preventDefault();
+            section.scrollIntoView({ behavior: 'smooth' });
+        });
+        navItem.appendChild(navLink);
+        navList.appendChild(navItem);
     });  
 }
 
 // Add or remove the 'active-class' based on scroll logic
 
-document.addEventListener('scroll', function() {
-    sections.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-            section.classList.add('your-active-class');
+const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.5
+};
+
+const observer = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const activeSection = entry.target.id;
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${activeSection}`) {
+                    link.classList.add('active');
+                }
+            });
+            entry.target.classList.add('your-active-class');
         } else {
-            section.classList.remove('your-active-class');
+            entry.target.classList.remove('your-active-class');
         }
     });
-});
+}, options);
 
-// Scroll to anchor ID using scrollTO event
-/* in line 62 of buildNav code */
+// Observe each section
+sections.forEach(section => {
+    observer.observe(section);
+});
 
 /**
  * End Main Functions
@@ -109,37 +109,11 @@ document.addEventListener('scroll', function() {
  * 
 */
 
-// Build menu 
+// Build the navigation menu when the DOM is fully loaded
 
 document.addEventListener('DOMContentLoaded', buildNav);
 
-// Scroll to section on link click
-/* in line 61 of buildNav code */
+// Set sections as active when scrolling
 
-// Set sections as active
+// The Intersection Observer handles this, no need for an additional scroll event listener
 
-document.addEventListener('scroll', setActiveSection);
-
-/* 
-** Removed from test code file just in case its need for re-attempt **
-
-function makeActive(){
-    for (cons section of sections) {
-        const box = section.getBoundingClientRect();
-        //Find a value that works best, but 150 seems to be a good start.
-        if (box.top <= VALUE && box.bottom >= VALUE) {
-        //apply active state on current section and corresponding Nav link
-        } else {
-        //Remove active state from other section and corresponding Nav link
-        }
-     }
-} 
-
-Call the makeActive() function whenever the user scrolls the page.
-// Make sections active document.addEventListener("scroll", function() { makeActive();});
-
-   * Set CSS class active state when the element is in the viewport.
-   * *Hint: see this* <a href="https://knowledge.udacity.com/questions/85408" target="_blank">*Knowledge post*</a> *to implement this functionality.*
-
-<br data-md>
-*/
