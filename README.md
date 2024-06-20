@@ -4,7 +4,7 @@
 # 💫 Landing Page Project 💫
 
 ## Project Overview
-This project demonstrates a dynamic and interactive web page where the navigation menu is built programmatically. It allows for smooth scrolling to different sections and highlights the section currently in the viewport. The project includes the following features:
+I created the core functionality used for this Landing page application by using JavaScript and connecting the code to the pre-written code that was created by Udacity. This project demonstrates a dynamic and interactive web page where the navigation menu is built programmatically. It allows for smooth scrolling to different sections and highlights the section currently in the viewport. The project includes the following features:
 
 ## Programmatic navigation menu build
 Smooth scrolling to sections upon clicking the navigation links.
